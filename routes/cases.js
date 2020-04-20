@@ -2,11 +2,6 @@ const express = require('express');
 const router = express.Router();
 const { Client } = require('pg')
 
-
-
-
-
-
 /* GET users listing. */
 router.get('/', async (req, res, next) => {
   try {
@@ -14,7 +9,7 @@ router.get('/', async (req, res, next) => {
       connectionString: process.env.DATABASE_URL
     })
     await client.connect()
-    let queryString = 'SELECT * from salesforce.case'
+    let queryString = 'SELECT * from salesforcecases.case'
     if(req.query !== undefined && req.query.search !== undefined){
       queryString += ` WHERE subject like '%${req.query.search}%'`
     }
