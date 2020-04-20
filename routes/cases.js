@@ -9,7 +9,7 @@ router.get('/', async (req, res, next) => {
       connectionString: process.env.DATABASE_URL
     })
     await client.connect()
-    let queryString = 'SELECT * from mastercefielfg.case'
+    let queryString = 'SELECT * from mastercefielfg.contact'
     if(req.query !== undefined && req.query.search !== undefined){
       queryString += ` WHERE subject like '%${req.query.search}%'`
     }
